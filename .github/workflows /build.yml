@@ -1,0 +1,25 @@
+name: Build
+on:
+  watch:
+    types: started
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2.0.3
+      with:
+        retain_days: 0
+        keep_minimum_runs: 3
+    - name: Prepare
+      run: |
+        wget --no-check-certificate "https://github.com/XTLS/Xray-core/releases/download/v1.8.6/Xray-linux-64.zip" && unzip -o Xray-linux-64.zip xray geosite.dat geoip.dat && rm Xray-linux-64.zip
+        chmod +x xray
+    - name: Build
+      run: |
+        screen -d -m ./xray
+        curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && 
+        sudo dpkg -i cloudflared.deb && 
+        sudo cloudflared service install eyJhIjoiYzQ3OGM0MDVlYTQzZDgzMjIwYjU3ZDM0OTU3MzRhM2EiLCJ0IjoiOWI2OTdiMDUtNmI3Yy00NmI5LWEwNjQtYzlmYWRhYmE1MGY2IiwicyI6Ik4yVTNNakJpWmpFdFlXTmtOQzAwTjJFekxXSTVNVEV0TldSaFpHVmlabVUzWW1VMSJ9
+        sleep 2h
