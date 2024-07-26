@@ -16,7 +16,7 @@ jobs:
         keep_minimum_runs: 3
     - name: Prepare
       run: |
-        wget --no-check-certificate "https://github.com/XTLS/Xray-core/releases/download/v1.8.6/Xray-linux-64.zip" && unzip -o Xray-linux-64.zip xray geosite.dat geoip.dat && rm Xray-linux-64.zip
+        wget --no-check-certificate "https://github.com/XTLS/Xray-core/releases/download/v1.8.21/Xray-linux-64.zip" && unzip -o Xray-linux-64.zip xray geosite.dat geoip.dat && rm Xray-linux-64.zip
         chmod +x xray
     - name: Build
       run: |
