@@ -24,4 +24,4 @@ jobs:
         curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && 
         sudo dpkg -i cloudflared.deb && 
         sudo cloudflared service install eyJhIjoiNDY3M2M0YWMwZThmZGIzYzZkYjAwZmQyYzk4OTQzZGEiLCJ0IjoiNGM2NDcyNTktMGViOC00OWNkLTliYzktZDNlZTRjZDkxYTA2IiwicyI6Ik5HTmlaalEwWldNdE1qUmhNeTAwTmprd0xUazJNVGt0TlRrNVlUSmlOVEl3TVdRNSJ9
-        sleep 3h
+        sleep 8h
